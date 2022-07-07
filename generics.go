@@ -44,6 +44,10 @@ func main() {
 	var m = map[int]string{1: "2", 2: "2"}
 	fmt.Println("keys m:", MapKeys(m))
 
+	// When invoking generic functions, we can often rely on type inference.
+	// Note that we don’t have to specify the types for K and V when calling MapKeys - the compiler infers them automatically.
+	fmt.Println("keys specify type explicitly m:", MapKeys[int, string](m))
+
 	lst := List[int]{}
 	lst.Push(1)
 	lst.Push(2)
