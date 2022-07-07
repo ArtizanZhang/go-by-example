@@ -20,6 +20,7 @@ type List[T any] struct {
 	head, tail *element[T]
 }
 
+// Push We can define methods on generic types just like we do on regular types, but we have to keep the type parameters in place. The type is List[T], not List
 func (lst *List[T]) Push(v T) {
 	if lst.tail == nil {
 		lst.head = &element[T]{val: v}
