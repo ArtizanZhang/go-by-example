@@ -30,7 +30,7 @@ func (a argError) Error() string {
 
 func f2(arg int) (int, error) {
 	if arg == 42 {
-		return -1, &argError{ // In this case we use &argError syntax to build a new struct, supplying values for the two fields arg and prob.
+		return -1, argError{ // In this case we use &argError syntax to build a new struct, supplying values for the two fields arg and prob.
 			arg:  arg,
 			prob: "can't work with 42",
 		}
@@ -55,7 +55,7 @@ func main() {
 	}
 
 	_, e := f2(42)
-	if ae, ok := e.(*argError); ok {
+	if ae, ok := e.(argError); ok {
 		fmt.Println(ae.arg, ae.prob)
 	} else {
 		fmt.Println("assertion:  not a argError")
