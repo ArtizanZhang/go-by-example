@@ -11,8 +11,8 @@ func main() {
 
 	timer1 := time.NewTimer(2 * time.Second)
 	// The <-timer1.C blocks on the timer’s channel C until it sends a value indicating that the timer fired
-	<-timer1.C
-	fmt.Println("Timer1 fired") // equal to time.Sleep()
+	t := <-timer1.C
+	fmt.Println("Timer1 fired", t) // equal to time.Sleep()
 
 	// If you just wanted to wait, you could have used time.Sleep.
 	// One reason a timer may be useful is that you can cancel the timer before it fires. Here’s an example of that.
