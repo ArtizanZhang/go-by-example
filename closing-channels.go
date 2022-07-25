@@ -27,6 +27,7 @@ func main() {
 		fmt.Println("sent job", j)
 	}
 	close(jobs) // This sends 3 jobs to the worker over the jobs channel, then closes it.
+	// This example also showed that it’s possible to close a non-empty channel but still have the remaining values be received.
 	fmt.Println("sent all jobs")
 
 	<-done // We await the worker using the synchronization approach we saw earlier
